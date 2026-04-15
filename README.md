@@ -123,7 +123,7 @@ SELECT * FROM Disciplina_Curso;
 
 <details>
 <summary> Clique para expandir </summary>
-<p align="center">
+
 Tabela Departamento;
 ```mysql
 +----------------+----------------------------+-----------------------+-------------------------+
@@ -134,7 +134,7 @@ Tabela Departamento;
 |              3 | Administração              | Campus Belo Horizonte |                       4 |
 +----------------+----------------------------+-----------------------+-------------------------+
 ```
-</p>
+
 </details>
 
 ```
