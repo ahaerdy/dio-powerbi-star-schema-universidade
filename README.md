@@ -121,9 +121,8 @@ SELECT * FROM Disciplina_Curso;
 
 <details>
 <summary> ▶️ Saídas - Clique para expandir </summary>
-
+<br>
 🔹 Departamento
-
 ```mysql
 mysql> SELECT * FROM Departamento;
 +----------------+----------------------------+-----------------------+-------------------------+
