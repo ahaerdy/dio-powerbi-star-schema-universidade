@@ -1,7 +1,3 @@
-Aqui está a versão do seu README com os ajustes de voz passiva solicitados, mantendo o tom profissional e técnico para o repositório:
-
----
-
 # Projeto: Construção de Star Schema para Cenários Universitários
 ### Bootcamp NTT DATA - Engenharia de Dados com Python (DIO)
 
