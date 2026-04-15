@@ -122,6 +122,7 @@ SELECT * FROM Disciplina_Curso;
 <details>
 <summary> ▶️ Saídas - Clique para expandir </summary>
 🔹 Departamento
+
 ```mysql
 +----------------+----------------------------+-----------------------+-------------------------+
 | idDepartamento | Nome                       | Campus                | idProfessor_coordenador |
@@ -131,6 +132,7 @@ SELECT * FROM Disciplina_Curso;
 |              3 | Administração              | Campus Belo Horizonte |                       4 |
 +----------------+----------------------------+-----------------------+-------------------------+
 ```
+
 🔹 Professor
 ```mysql
 +-------------+-----------------------------+
