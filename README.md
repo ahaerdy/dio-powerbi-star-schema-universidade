@@ -109,13 +109,13 @@ Após a importação dos dados para o Power BI, as seguintes transformações fo
     * Foi adicionada uma **Coluna Personalizada** chamada `Qtd_Disciplinas` com valor fixo `1` (métrica de contagem).
     * Foi adicionada a coluna `DataKey` para relacionar com a dimensão calendário.
 
-### Visão do Power Query Editor: Organização das consultas dimensionais e aplicação das etapas de transformação (ETL) para limpeza e criação da tabela fato:
+#### Visão do Power Query Editor
+
+- Organização das consultas dimensionais e aplicação das etapas de transformação (ETL) para limpeza e criação da tabela fato:
 
 <p align="center">
   <img src="000-Midia_e_Anexos/2026-04-15-14-37-04.png" alt="" width="1024">
 </p>
-
-
 
 ---
 
@@ -129,6 +129,14 @@ O modelo final foi estruturado no formato **Snowflake/Star Schema** para garanti
 * **Fato_Professor [1:N] Dim_Disciplina**: Via `Disciplina_idDisciplina`.
 * **Fato_Professor [1:N] Dim_Data**: Via `DataKey`.
 * **Dim_Professor [1:N] Dim_Departamento**: Via `idDepartamento` (Configurando o braço Snowflake).
+
+#### Diagrama Star Schema (com ramificação Snowflake para Departamentos)
+
+- Relacionamentos entre as tabelas de dimensão e a tabela fato centralizada no objeto Professor
+
+<p align="center">
+  <img src="000-Midia_e_Anexos/2026-04-15-14-42-49.png" alt="" width="1024">
+</p>
 
 ---
 
