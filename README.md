@@ -136,7 +136,6 @@ mysql> SELECT * FROM Departamento;
 ```
 
 🔹 Professor
-
 ```mysql
 mysql> SELECT * FROM Professor;
 +-------------+-----------------------------+
