@@ -133,7 +133,11 @@ mysql> SELECT * FROM Departamento;
 |              2 | Ciência de Dados           | Campus Rio de Janeiro |                       2 |
 |              3 | Administração              | Campus Belo Horizonte |                       4 |
 +----------------+----------------------------+-----------------------+-------------------------+
+```
 
+🔹 Professor
+
+```mysql
 mysql> SELECT * FROM Professor;
 +-------------+-----------------------------+
 | idProfessor | Departamento_idDepartamento |
