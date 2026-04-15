@@ -21,69 +21,94 @@ Para dar suporte ao projeto, os dados foram inicialmente estruturados e populado
 
 ### 📜 Script 01: Criação das Tabelas (DDL)
 ```sql
-CREATE DATABASE IF NOT EXISTS universidade;
-USE universidade;
+-- =============================================
+-- Modelo Relacional - Universidade (Transacional)
+-- Baseado exatamente no diagrama EER do README
+-- =============================================
 
--- Tabela Departamento
+CREATE SCHEMA IF NOT EXISTS universidade_star_schema;
+USE universidade_star_schema;
+
+-- 1. Departamento
 CREATE TABLE Departamento (
-    idDepartamento INT PRIMARY KEY,
-    Nome VARCHAR(45),
-    Campus VARCHAR(45)
+    idDepartamento INT PRIMARY KEY AUTO_INCREMENT,
+    Nome VARCHAR(45) NOT NULL,
+    Campus VARCHAR(45) NOT NULL,
+    idProfessor_coordenador INT
 );
 
--- Tabela Professor
+-- 2. Professor
 CREATE TABLE Professor (
-    idProfessor INT PRIMARY KEY,
-    Nome VARCHAR(45),
-    Departamento_idDepartamento INT,
-    FOREIGN KEY (Departamento_idDepartamento) REFERENCES Departamento(idDepartamento)
+    idProfessor INT PRIMARY KEY AUTO_INCREMENT,
+    Departamento_idDepartamento INT NOT NULL,
+    CONSTRAINT fk_professor_departamento FOREIGN KEY (Departamento_idDepartamento) 
+        REFERENCES Departamento(idDepartamento)
 );
 
--- Tabela Curso
+-- 3. Curso
 CREATE TABLE Curso (
-    idCurso INT PRIMARY KEY,
-    Nome VARCHAR(45)
+    idCurso INT PRIMARY KEY AUTO_INCREMENT,
+    Departamento_idDepartamento INT NOT NULL,
+    CONSTRAINT fk_curso_departamento FOREIGN KEY (Departamento_idDepartamento) 
+        REFERENCES Departamento(idDepartamento)
 );
 
--- Tabela Disciplina
+-- 4. Disciplina
 CREATE TABLE Disciplina (
-    idDisciplina INT PRIMARY KEY,
-    Nome VARCHAR(45),
-    Professor_idProfessor INT,
-    Curso_idCurso INT,
-    FOREIGN KEY (Professor_idProfessor) REFERENCES Professor(idProfessor),
-    FOREIGN KEY (Curso_idCurso) REFERENCES Curso(idCurso)
+    idDisciplina INT PRIMARY KEY AUTO_INCREMENT,
+    Professor_idProfessor INT NOT NULL,
+    CONSTRAINT fk_disciplina_professor FOREIGN KEY (Professor_idProfessor) 
+        REFERENCES Professor(idProfessor)
 );
 
--- Tabela Associativa Disciplina_Curso (Base para a Fato)
+-- 5. Disciplina_Curso (tabela associativa muitos-para-muitos)
 CREATE TABLE Disciplina_Curso (
-    Disciplina_idDisciplina INT,
-    Curso_idCurso INT,
+    Disciplina_idDisciplina INT NOT NULL,
+    Curso_idCurso INT NOT NULL,
     PRIMARY KEY (Disciplina_idDisciplina, Curso_idCurso),
-    FOREIGN KEY (Disciplina_idDisciplina) REFERENCES Disciplina(idDisciplina),
-    FOREIGN KEY (Curso_idCurso) REFERENCES Curso(idCurso)
+    CONSTRAINT fk_dc_disciplina FOREIGN KEY (Disciplina_idDisciplina) 
+        REFERENCES Disciplina(idDisciplina),
+    CONSTRAINT fk_dc_curso FOREIGN KEY (Curso_idCurso) 
+        REFERENCES Curso(idCurso)
 );
+
+-- =============================================
+-- Adiciona FK do coordenador (depois que Professor existe)
+ALTER TABLE Departamento 
+    ADD CONSTRAINT fk_departamento_coordenador 
+    FOREIGN KEY (idProfessor_coordenador) REFERENCES Professor(idProfessor);
 ```
 
 ### 📜 Script 02: Inserção de Dados (DML)
+
 ```sql
--- Populando Departamentos
-INSERT INTO Departamento VALUES (1, 'Ciência da Computação', 'Campus A'), (2, 'Engenharia Elétrica', 'Campus B');
+-- Popula Departamento
+INSERT INTO Departamento (Nome, Campus) VALUES 
+('Engenharia de Computação', 'Campus São Paulo'),
+('Ciência de Dados', 'Campus Rio de Janeiro'),
+('Administração', 'Campus Belo Horizonte');
 
--- Populando Professores
-INSERT INTO Professor VALUES (10, 'Arthur Haerdy Jr', 1), (20, 'Diógenes Pardo', 1), (30, 'José Augusto', 2);
+-- Popula Professor (depois dos departamentos)
+INSERT INTO Professor (Departamento_idDepartamento) VALUES (1), (2), (1), (3);
 
--- Populando Cursos
-INSERT INTO Curso VALUES (100, 'Bacharelado em TI'), (200, 'Engenharia de Software');
+-- Atualiza coordenadores
+UPDATE Departamento SET idProfessor_coordenador = 1 WHERE idDepartamento = 1;
+UPDATE Departamento SET idProfessor_coordenador = 2 WHERE idDepartamento = 2;
+UPDATE Departamento SET idProfessor_coordenador = 4 WHERE idDepartamento = 3;
 
--- Populando Disciplinas
-INSERT INTO Disciplina VALUES (500, 'Banco de Dados', 10, 100), (501, 'Python para Dados', 10, 200), (502, 'Circuitos Lógicos', 30, 100);
+-- Popula Curso
+INSERT INTO Curso (Departamento_idDepartamento) VALUES (1), (1), (2), (3);
 
--- Populando a Tabela Associativa
-INSERT INTO Disciplina_Curso VALUES (500, 100), (501, 200), (502, 100);
+-- Popula Disciplina
+INSERT INTO Disciplina (Professor_idProfessor) VALUES (1), (1), (2), (3), (4);
+
+-- Popula Disciplina_Curso (associa disciplinas aos cursos)
+INSERT INTO Disciplina_Curso VALUES 
+(1,1), (2,1), (3,2), (4,3), (5,4);
 ```
 
-📊 Tabelas Criadas (Validação)
+📜 Validação dos Dados
+
 Abaixo, os comandos utilizados para validar a carga de dados e a integridade referencial antes da importação para o Power BI:
 
 ```mysql
@@ -151,7 +176,6 @@ mysql> SELECT * FROM Disciplina_Curso;
 +-------------------------+---------------+
 5 rows in set (0,00 sec)
 ```
-
 
 ---
 
