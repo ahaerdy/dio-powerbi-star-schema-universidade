@@ -121,6 +121,7 @@ SELECT * FROM Disciplina_Curso;
 
 <details>
 <summary> ▶️ Saídas - Clique para expandir </summary>
+
 🔹 Departamento
 
 ```mysql
