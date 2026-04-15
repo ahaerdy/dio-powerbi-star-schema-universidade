@@ -83,6 +83,78 @@ INSERT INTO Disciplina VALUES (500, 'Banco de Dados', 10, 100), (501, 'Python pa
 INSERT INTO Disciplina_Curso VALUES (500, 100), (501, 200), (502, 100);
 ```
 
+### Tabelas Criadas
+
+```mysql
+mysql> show tables;
++------------------------------------+
+| Tables_in_universidade_star_schema |
++------------------------------------+
+| Curso                              |
+| Departamento                       |
+| Disciplina                         |
+| Disciplina_Curso                   |
+| Professor                          |
++------------------------------------+
+5 rows in set (0,00 sec)
+
+mysql> select * from Curso;
++---------+-----------------------------+
+| idCurso | Departamento_idDepartamento |
++---------+-----------------------------+
+|       1 |                           1 |
+|       2 |                           1 |
+|       3 |                           2 |
+|       4 |                           3 |
++---------+-----------------------------+
+4 rows in set (0,00 sec)
+
+mysql> select * from Departamento;
++----------------+----------------------------+-----------------------+-------------------------+
+| idDepartamento | Nome                       | Campus                | idProfessor_coordenador |
++----------------+----------------------------+-----------------------+-------------------------+
+|              1 | Engenharia de Computação   | Campus São Paulo      |                       1 |
+|              2 | Ciência de Dados           | Campus Rio de Janeiro |                       2 |
+|              3 | Administração              | Campus Belo Horizonte |                       4 |
++----------------+----------------------------+-----------------------+-------------------------+
+3 rows in set (0,00 sec)
+
+mysql> select * from Disciplina;
++--------------+-----------------------+
+| idDisciplina | Professor_idProfessor |
++--------------+-----------------------+
+|            1 |                     1 |
+|            2 |                     1 |
+|            3 |                     2 |
+|            4 |                     3 |
+|            5 |                     4 |
++--------------+-----------------------+
+5 rows in set (0,01 sec)
+
+mysql> select * from Disciplina_Curso;
++-------------------------+---------------+
+| Disciplina_idDisciplina | Curso_idCurso |
++-------------------------+---------------+
+|                       1 |             1 |
+|                       2 |             1 |
+|                       3 |             2 |
+|                       4 |             3 |
+|                       5 |             4 |
++-------------------------+---------------+
+5 rows in set (0,00 sec)
+
+mysql> select * from Professor;
++-------------+-----------------------------+
+| idProfessor | Departamento_idDepartamento |
++-------------+-----------------------------+
+|           1 |                           1 |
+|           3 |                           1 |
+|           2 |                           2 |
+|           4 |                           3 |
++-------------+-----------------------------+
+4 rows in set (0,00 sec)
+```
+
 ---
 
 ## ⚙️ 3. Processo de ETL (Power Query)
