@@ -124,6 +124,7 @@ SELECT * FROM Disciplina_Curso;
 🔹 Departamento
 
 ```mysql
+mysql> SELECT * FROM Departamento;
 +----------------+----------------------------+-----------------------+-------------------------+
 | idDepartamento | Nome                       | Campus                | idProfessor_coordenador |
 +----------------+----------------------------+-----------------------+-------------------------+
@@ -131,25 +132,10 @@ SELECT * FROM Disciplina_Curso;
 |              2 | Ciência de Dados           | Campus Rio de Janeiro |                       2 |
 |              3 | Administração              | Campus Belo Horizonte |                       4 |
 +----------------+----------------------------+-----------------------+-------------------------+
-```
 
-🔹 Professor
-```mysql
-+-------------+-----------------------------+
-| idProfessor | Departamento_idDepartamento |
-+-------------+-----------------------------+
-|           1 |                           1 |
-|           3 |                           1 |
-|           2 |                           2 |
-|           4 |                           3 |
-+-------------+-----------------------------+
-```
-
-</details>
-
-```
 mysql> SELECT * FROM Professor;
-+-------------+-----------------------------+
+
++-------5 rows in set (0,00 sec)------+-----------------------------+
 | idProfessor | Departamento_idDepartamento |
 +-------------+-----------------------------+
 |           1 |                           1 |
@@ -157,7 +143,6 @@ mysql> SELECT * FROM Professor;
 |           2 |                           2 |
 |           4 |                           3 |
 +-------------+-----------------------------+
-4 rows in set (0,00 sec)
 
 mysql> SELECT * FROM Curso;
 +---------+-----------------------------+
@@ -168,7 +153,6 @@ mysql> SELECT * FROM Curso;
 |       3 |                           2 |
 |       4 |                           3 |
 +---------+-----------------------------+
-4 rows in set (0,00 sec)
 
 mysql> SELECT * FROM Disciplina;
 +--------------+-----------------------+
@@ -180,7 +164,6 @@ mysql> SELECT * FROM Disciplina;
 |            4 |                     3 |
 |            5 |                     4 |
 +--------------+-----------------------+
-5 rows in set (0,00 sec)
 
 mysql> SELECT * FROM Disciplina_Curso;
 +-------------------------+---------------+
@@ -192,8 +175,9 @@ mysql> SELECT * FROM Disciplina_Curso;
 |                       4 |             3 |
 |                       5 |             4 |
 +-------------------------+---------------+
-5 rows in set (0,00 sec)
+
 ```
+<details>
 
 ---
 
