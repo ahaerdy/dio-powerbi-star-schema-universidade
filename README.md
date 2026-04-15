@@ -1,16 +1,18 @@
-Este é o guia completo e detalhado para o seu repositório no GitHub. Ele foi estruturado para documentar todo o ciclo de vida do projeto, desde a infraestrutura do banco de dados relacional até a entrega do modelo dimensional final no Power BI, incluindo os scripts técnicos solicitados.
+Aqui está a versão do seu README com os ajustes de voz passiva solicitados, mantendo o tom profissional e técnico para o repositório:
 
 ---
 
-# 🎓 Projeto: Construção de Star Schema para Cenários Universitários
+# Projeto: Construção de Star Schema para Cenários Universitários
 ### Bootcamp NTT DATA - Engenharia de Dados com Python (DIO)
 
 Este repositório documenta a transformação de um modelo de banco de dados relacional (transacional) em um modelo dimensional (**Star Schema**), otimizado para análise de indicadores de professores e disciplinas em um ambiente universitário.
 
 ---
 
-## 🎯 1. Objetivo do Desafio
-O foco principal é o **objeto de análise: Professor**. O desafio consistiu em:
+## 1. Objetivo do Desafio
+
+O desafio consistiu em:
+
 * Ignorar dados operacionais irrelevantes para este contexto (como dados de alunos e pré-requisitos).
 * Estruturar uma Tabela Fato que consolide as métricas de ensino.
 * Criar Dimensões que permitam filtrar essas métricas por Curso, Disciplina, Professor, Departamento e Tempo.
@@ -92,7 +94,8 @@ INSERT INTO Disciplina_Curso VALUES (500, 100), (501, 200), (502, 100);
 Após a importação dos dados para o Power BI, as seguintes transformações foram aplicadas no **Editor do Power Query**:
 
 1.  **Limpeza e Renomeação:** Tabelas originais foram renomeadas para o prefixo `Dim_` (ex: `Dim_Professor`). Colunas desnecessárias foram removidas para otimizar a performance.
-2.  **Criação da Dim_Data:** Como o banco original não possuía datas, criamos uma dimensão temporal via Script M para permitir análises por ano, mês e trimestre:
+2.  **Criação da Dim_Data:** Como o banco original não possuía datas, foi criada uma dimensão temporal via Script M para permitir análises por ano, mês e trimestre:
+
     ```powerquery
     let
         DataInicio = #date(2025, 1, 1),
@@ -105,10 +108,18 @@ Após a importação dos dados para o Power BI, as seguintes transformações fo
         DataKey
     ```
 3.  **Construção da Fato_Professor:**
-    * Utilizamos a tabela `Disciplina_Curso` como base (Referência).
-    * Aplicamos o comando **Mesclar Consultas** para trazer o `Professor_idProfessor` da tabela de Disciplinas.
-    * Adicionamos uma **Coluna Personalizada** chamada `Qtd_Disciplinas` com valor fixo `1` (métrica de contagem).
-    * Adicionamos a coluna `DataKey` para relacionar com a dimensão calendário.
+    * Foi utilizada a tabela `Disciplina_Curso` como base (Referência).
+    * Foi aplicado o comando **Mesclar Consultas** para trazer o `Professor_idProfessor` da tabela de Disciplinas.
+    * Foi adicionada uma **Coluna Personalizada** chamada `Qtd_Disciplinas` com valor fixo `1` (métrica de contagem).
+    * Foi adicionada a coluna `DataKey` para relacionar com a dimensão calendário.
+
+### Visão do Power Query Editor: Organização das consultas dimensionais e aplicação das etapas de transformação (ETL) para limpeza e criação da tabela fato:
+
+<p align="center">
+  <img src="000-Midia_e_Anexos/2026-04-15-14-37-04.png" alt="" width="1024">
+</p>
+
+
 
 ---
 
@@ -126,7 +137,7 @@ O modelo final foi estruturado no formato **Snowflake/Star Schema** para garanti
 ---
 
 ## 🚀 5. Conclusão
-O modelo resultante permite uma análise granular da carga acadêmica. Agora é possível visualizar, por exemplo, o total de disciplinas ofertadas por departamento em um período específico ou o volume de cursos atendidos por cada docente.
+O modelo resultante permite uma análise granular da carga acadêmica. É possível visualizar, por exemplo, o total de disciplinas ofertadas por departamento em um período específico ou o volume de cursos atendidos por cada docente.
 
 ---
 **Desenvolvido por:** Arthur Haerdy Junior  
