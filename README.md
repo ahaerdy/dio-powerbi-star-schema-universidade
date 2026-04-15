@@ -193,6 +193,7 @@ mysql> SELECT * FROM Disciplina_Curso;
 |                       5 |             4 |
 +-------------------------+---------------+
 ```
+</details>
 
 ### 💡 Detalhamento Técnico: Por que o uso intensivo de IDs numéricos?
 
@@ -201,8 +202,6 @@ A predominância de valores numéricos nas tabelas acima não é acidental; ela 
 1.  **Performance de Processamento (Joins):** Motores analíticos (como o *VertiPaq* do Power BI) são otimizados para processar números inteiros. Realizar cruzamentos entre tabelas (*joins*) comparando IDs numéricos é computacionalmente muito mais barato e rápido do que comparar longas cadeias de texto (strings).
 2.  **Eficiência de Armazenamento e Compressão:** IDs numéricos ocupam menos bytes e permitem algoritmos de compressão mais eficientes. Em grandes volumes de dados, isso reduz drasticamente o tamanho do arquivo e o consumo de memória RAM.
 3.  **Arquitetura Star Schema:** Nesta estrutura, a **Tabela Fato** atua como uma "tabela de ligação" leve, armazenando apenas as métricas e as chaves (IDs). Os atributos descritivos (nomes de professores, departamentos, etc.) ficam centralizados nas **Tabelas de Dimensão**. Isso evita a redundância de texto na Fato e garante que, se um nome mudar, a alteração seja feita em apenas um lugar na Dimensão, sem quebrar os relacionamentos.
-
-</details>
 
 ---
 
