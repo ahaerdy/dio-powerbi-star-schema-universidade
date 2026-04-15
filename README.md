@@ -119,10 +119,8 @@ SELECT * FROM Disciplina;
 SELECT * FROM Disciplina_Curso;
 ```
 
-#### Saídas
-
 <details>
-<summary> Clique para expandir </summary>
+<summary> ▶️ Saídas - Clique para expandir </summary>
 
 Tabela Departamento;
 ```mysql
