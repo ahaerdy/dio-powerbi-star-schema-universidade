@@ -193,6 +193,13 @@ mysql> SELECT * FROM Disciplina_Curso;
 |                       5 |             4 |
 +-------------------------+---------------+
 ```
+
+Detalhamento:
+
+- A predominância de números nas tabelas acima reflete o uso de Chaves Primárias e Estrangeiras (IDs). Na modelagem de dados, utilizamos códigos numéricos no lugar de textos descritivos (como o nome do curso ou do professor) por motivos de performance e eficiência de armazenamento. 
+
+- Motores analíticos, como o do Power BI, realizam os cruzamentos de dados (joins) de forma incrivelmente mais rápida processando números inteiros do que comparando cadeias de texto. Nessa arquitetura, a tabela Fato atua como uma ponte veloz armazenando apenas esses IDs, enquanto os textos detalhados ficam guardados nas tabelas de Dimensão e só são alterados na exibição dos gráficos na etapa final.
+
 </details>
 
 ---
