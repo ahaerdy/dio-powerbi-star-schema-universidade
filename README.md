@@ -148,7 +148,11 @@ mysql> SELECT * FROM Professor;
 |           2 |                           2 |
 |           4 |                           3 |
 +-------------+-----------------------------+
+```
 
+🔹 Curso
+
+```mysql
 mysql> SELECT * FROM Curso;
 +---------+-----------------------------+
 | idCurso | Departamento_idDepartamento |
@@ -158,7 +162,11 @@ mysql> SELECT * FROM Curso;
 |       3 |                           2 |
 |       4 |                           3 |
 +---------+-----------------------------+
+```
 
+🔹 Disciplina
+
+```mysql
 mysql> SELECT * FROM Disciplina;
 +--------------+-----------------------+
 | idDisciplina | Professor_idProfessor |
@@ -169,7 +177,11 @@ mysql> SELECT * FROM Disciplina;
 |            4 |                     3 |
 |            5 |                     4 |
 +--------------+-----------------------+
+```
 
+🔹 Disciplina_Curso
+
+```mysql
 mysql> SELECT * FROM Disciplina_Curso;
 +-------------------------+---------------+
 | Disciplina_idDisciplina | Curso_idCurso |
@@ -180,7 +192,6 @@ mysql> SELECT * FROM Disciplina_Curso;
 |                       4 |             3 |
 |                       5 |             4 |
 +-------------------------+---------------+
-
 ```
 </details>
 
