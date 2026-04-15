@@ -120,7 +120,7 @@ SELECT * FROM Disciplina_Curso;
 ```
 
 <details>
-<summary> 🛢️ Tabelas MySQL - 🔻Clique para 🔻</summary>
+<summary> 🛢️ Tabelas MySQL - 🔻Clique para visualizar🔻</summary>
 <br>
 
 🔹 Departamento
