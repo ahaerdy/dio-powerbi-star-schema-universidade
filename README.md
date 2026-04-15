@@ -107,7 +107,7 @@ INSERT INTO Disciplina_Curso VALUES
 (1,1), (2,1), (3,2), (4,3), (5,4);
 ```
 
-### 📜 Validação
+### 🟩 Validação
 
 Abaixo, os comandos utilizados para validar a carga de dados e a integridade referencial antes da importação para o Power BI:
 
@@ -119,8 +119,11 @@ SELECT * FROM Disciplina;
 SELECT * FROM Disciplina_Curso;
 ```
 
-#### Saída
+#### Saídas
 
+<details>
+<summary> Clique para expandir </summary>
+<p align="center">
 Tabela Departamento;
 ```mysql
 +----------------+----------------------------+-----------------------+-------------------------+
@@ -131,6 +134,8 @@ Tabela Departamento;
 |              3 | Administração              | Campus Belo Horizonte |                       4 |
 +----------------+----------------------------+-----------------------+-------------------------+
 ```
+</p>
+</details>
 
 ```
 mysql> SELECT * FROM Professor;
