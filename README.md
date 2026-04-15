@@ -207,10 +207,15 @@ A predominância de valores numéricos nas tabelas acima não é acidental; ela 
 
 ## ⚙️ 3. Processo de ETL (Power Query)
 
-Após a importação dos dados para o Power BI, as seguintes transformações foram aplicadas no **Editor do Power Query**:
+Após a importação dos dados para o Power BI, as seguintes transformações foram aplicadas no **Editor do Power Query** para converter o modelo relacional em um modelo dimensional:
 
-1.  **Limpeza e Renomeação:** Tabelas originais foram renomeadas para o prefixo `Dim_` (ex: `Dim_Professor`). Colunas desnecessárias foram removidas para otimizar a performance.
-2.  **Criação da Dim_Data:** Como o banco original não possuía datas, foi criada uma dimensão temporal via Script M para permitir análises por ano, mês e trimestre:
+1.  **Padronização de Nomenclatura (Prefixos):**
+    *   **Prefixos `Dim_`:** As tabelas de entidades foram renomeadas com o prefixo `Dim_` (ex: `Dim_Professor`, `Dim_Curso`). Isso facilita a identificação imediata das tabelas que contêm atributos descritivos e qualitativos no modelo.
+    *   **Prefixo `Fato_`:** A tabela central de métricas foi nomeada como `Fato_Professor`, indicando que ela contém os eventos quantitativos (fatos) a serem analisados.
+
+2.  **Limpeza e Otimização:** Colunas desnecessárias ao contexto analítico foram removidas para reduzir o tamanho do modelo e melhorar a performance das medidas DAX.
+
+3.  **Criação da Dim_Data:** Como o banco original não possuía datas, foi criada uma dimensão temporal via Script M para permitir análises por ano, mês e trimestre:
 
     ```powerquery
     let
@@ -223,11 +228,12 @@ Após a importação dos dados para o Power BI, as seguintes transformações fo
     in
         DataKey
     ```
-3.  **Construção da Fato_Professor:**
-    * Foi utilizada a tabela `Disciplina_Curso` como base (Referência).
-    * Foi aplicado o comando **Mesclar Consultas** para trazer o `Professor_idProfessor` da tabela de Disciplinas.
-    * Foi adicionada uma **Coluna Personalizada** chamada `Qtd_Disciplinas` com valor fixo `1` (métrica de contagem).
-    * Foi adicionada a coluna `DataKey` para relacionar com a dimensão calendário.
+
+4.  **Construção da Fato_Professor:**
+    *   Foi utilizada a tabela `Disciplina_Curso` como base (Referência).
+    *   Foi aplicado o comando **Mesclar Consultas** para trazer o `Professor_idProfessor` da tabela de Disciplinas.
+    *   Foi adicionada uma **Coluna Personalizada** chamada `Qtd_Disciplinas` com valor fixo `1` (métrica de contagem).
+    *   Foi adicionada a coluna `DataKey` para relacionar com a dimensão calendário.
 
 ### Visão do Power Query Editor
 
@@ -241,7 +247,14 @@ Após a importação dos dados para o Power BI, as seguintes transformações fo
 
 ## 📐 4. Arquitetura do Modelo (Star Schema)
 
-O modelo final foi estruturado no formato **Snowflake/Star Schema** para garantir que o Departamento filtre o Professor e este, por sua vez, filtre a Fato.
+A arquitetura dimensional foi desenhada para separar claramente as métricas dos seus contextos:
+
+### 📊 O Papel das Tabelas
+
+*   **Tabela Fato (`Fato_Professor`):** É o núcleo do modelo. Ela armazena as chaves estrangeiras que conectam as dimensões e contém os valores quantitativos (como a contagem de disciplinas). Seu papel é registrar "o que aconteceu" (o fato da regência de uma disciplina) de forma compacta.
+*   **Tabelas de Dimensão (`Dim_`):** Cercam a tabela fato e fornecem o contexto "quem, onde e o quê". Elas contêm os dados textuais que permitem filtrar, agrupar e rotular os dados da fato nos relatórios.
+
+O modelo final utiliza uma abordagem **Star Schema** (com uma leve ramificação **Snowflake** para Departamentos) para garantir que o fluxo de filtragem seja eficiente e intuitivo.
 
 ### Relacionamentos:
 * **Fato_Professor [1:N] Dim_Professor**: Via `Professor_idProfessor`.
