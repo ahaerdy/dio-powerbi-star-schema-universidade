@@ -121,8 +121,8 @@ SELECT * FROM Disciplina_Curso;
 
 <details>
 <summary> ▶️ Saídas - Clique para expandir </summary>
-
-Tabela Departamento;
+<br>
+🔹 Departamento
 ```mysql
 +----------------+----------------------------+-----------------------+-------------------------+
 | idDepartamento | Nome                       | Campus                | idProfessor_coordenador |
@@ -131,6 +131,18 @@ Tabela Departamento;
 |              2 | Ciência de Dados           | Campus Rio de Janeiro |                       2 |
 |              3 | Administração              | Campus Belo Horizonte |                       4 |
 +----------------+----------------------------+-----------------------+-------------------------+
+```
+
+🔹 Professor
+```mysql
++-------------+-----------------------------+
+| idProfessor | Departamento_idDepartamento |
++-------------+-----------------------------+
+|           1 |                           1 |
+|           3 |                           1 |
+|           2 |                           2 |
+|           4 |                           3 |
++-------------+-----------------------------+
 ```
 
 </details>
