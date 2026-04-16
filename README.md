@@ -1,4 +1,4 @@
-# Projeto: Construção de Star Schema para Cenários Universitários
+# Construção de Star Schema para Cenários Universitários
 ### Bootcamp NTT DATA - Engenharia de Dados com Python (DIO)
 
 Este repositório documenta a transformação de um modelo de banco de dados relacional (transacional) em um modelo dimensional (**Star Schema**), otimizado para análise de indicadores de professores e disciplinas em um ambiente universitário.
