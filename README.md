@@ -237,8 +237,6 @@ Após a importação dos dados para o Power BI, as seguintes transformações fo
 
 5. **Refinamentos**
 
-Foram aplicados refinamentos no Power Query para tornar o dashboard mais intuitivo e próximo de um cenário real:
-
 - **Humanização dos Dados:** Criação de colunas condicionais para atribuir nomes reais aos professores (tabela **Dim_Professor**) e nomes descritivos às disciplinas (tabela **Dim_Disciplina**).
 - **Enriquecimento da Dimensão Professor:** Associação direta entre professores e seus respectivos cargos de coordenação nos departamentos.
 - **Tipagem de Dados:** Garantia de que todas as colunas de texto e chaves (Keys) estejam com a tipagem correta para otimizar a performance do modelo dimensional.
