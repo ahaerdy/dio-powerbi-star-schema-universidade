@@ -120,7 +120,7 @@ SELECT * FROM Disciplina_Curso;
 ```
 
 <details>
-<summary> 🛢️ Tabelas MySQL - 🔻Clique para visualizar🔻</summary>
+<summary> 🛢️ Tabelas MySQL (validação) - 🔻Clique para visualizar🔻</summary>
 <br>
 
 🔹 Departamento
@@ -240,7 +240,31 @@ Após a importação dos dados para o Power BI, as seguintes transformações fo
 - Organização das consultas dimensionais e aplicação das etapas de transformação (ETL) para limpeza e criação da tabela fato:
 
 <p align="center">
-  <img src="000-Midia_e_Anexos/2026-04-15-14-37-04.png" alt="" width="1024">
+  <img src="000-Midia_e_Anexos/001-Tabela_Dim_Professor.png" alt="" width="1024">
+</p>
+
+<p align="center">
+  <img src="000-Midia_e_Anexos/002-Tabela_Dim_Disciplina.png" alt="" width="1024">
+</p>
+
+<p align="center">
+  <img src="000-Midia_e_Anexos/003-Tabela_Disciplina_Curso.png" alt="" width="1024">
+</p>
+
+<p align="center">
+  <img src="000-Midia_e_Anexos/004-Tabela_Dim_Departamento.png" alt="" width="1024">
+</p>
+
+<p align="center">
+  <img src="000-Midia_e_Anexos/005-Tabela_Dim_Curso.png" alt="" width="1024">
+</p>
+
+<p align="center">
+  <img src="000-Midia_e_Anexos/006-Tabela_Dim_Data.png" alt="" width="1024">
+</p>
+
+<p align="center">
+  <img src="000-Midia_e_Anexos/007-Tabela_Fato_Professor.png" alt="" width="1024">
 </p>
 
 ---
@@ -268,7 +292,7 @@ O modelo final utiliza uma abordagem **Star Schema** (com uma leve ramificação
 - Relacionamentos entre as tabelas de dimensão e a tabela fato centralizada no objeto Professor
 
 <p align="center">
-  <img src="000-Midia_e_Anexos/2026-04-15-14-42-49.png" alt="" width="1024">
+  <img src="000-Midia_e_Anexos/008-Diagrama_Estrela.png" alt="" width="1024">
 </p>
 
 ---
