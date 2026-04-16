@@ -239,37 +239,37 @@ Após a importação dos dados para o Power BI, as seguintes transformações fo
 
 - Organização das consultas dimensionais e aplicação das etapas de transformação (ETL) para limpeza e criação da tabela fato:
 
-🔹Dim_Professor:
+🔸Dim_Professor:
 <p align="center">
   <img src="000-Midia_e_Anexos/001-Tabela_Dim_Professor.png" alt="" width="1024">
 </p>
 
-🔹Dim_Disciplina:
+🔸Dim_Disciplina:
 <p align="center">
   <img src="000-Midia_e_Anexos/002-Tabela_Dim_Disciplina.png" alt="" width="1024">
 </p>
 
-Disciplina_Curso:
+🔸Disciplina_Curso:
 <p align="center">
   <img src="000-Midia_e_Anexos/003-Tabela_Disciplina_Curso.png" alt="" width="1024">
 </p>
 
-Dim_Departamento:
+🔸Dim_Departamento:
 <p align="center">
   <img src="000-Midia_e_Anexos/004-Tabela_Dim_Departamento.png" alt="" width="1024">
 </p>
 
-Dim_Curso:
+🔸Dim_Curso:
 <p align="center">
   <img src="000-Midia_e_Anexos/005-Tabela_Dim_Curso.png" alt="" width="1024">
 </p>
 
-Dim_Data:
+🔸Dim_Data:
 <p align="center">
   <img src="000-Midia_e_Anexos/006-Tabela_Dim_Data.png" alt="" width="1024">
 </p>
 
-Fato_Professor:
+🔸Fato_Professor:
 <p align="center">
   <img src="000-Midia_e_Anexos/007-Tabela_Fato_Professor.png" alt="" width="1024">
 </p>
