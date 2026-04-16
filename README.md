@@ -235,6 +235,14 @@ Após a importação dos dados para o Power BI, as seguintes transformações fo
     *   Foi adicionada uma **Coluna Personalizada** chamada `Qtd_Disciplinas` com valor fixo `1` (métrica de contagem).
     *   Foi adicionada a coluna `DataKey` para relacionar com a dimensão calendário.
 
+5. **Refinamentos**
+
+Diferente do modelo original que utilizava apenas IDs numéricos, foram aplicados refinamentos no Power Query para tornar o dashboard mais intuitivo e próximo de um cenário real:
+
+- **Humanização dos Dados:** Criação de colunas condicionais para atribuir nomes reais aos professores (ex: Luiz Wagner Pereira Biscainho, Paulo Sérgio ramirez Diniz) e nomes descritivos às disciplinas (ex: Eletrônica Digital, Processamento de SInais).
+- **Enriquecimento da Dimensão Professor:** Associação direta entre professores e seus respectivos cargos de coordenação nos departamentos.
+- **Tipagem de Dados:** Garantia de que todas as colunas de texto e chaves (Keys) estejam com a tipagem correta para otimizar a performance do modelo dimensional.
+
 ### Visão do Power Query Editor
 
 - Organização das consultas dimensionais e aplicação das etapas de transformação (ETL) para limpeza e criação da tabela fato:
