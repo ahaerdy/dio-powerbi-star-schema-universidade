@@ -15,11 +15,11 @@ O desafio consistiu em:
 
 ---
 
-## 🛠️ 2. Infraestrutura: Banco de Dados Relacional (MySQL)
+## 2. Infraestrutura: Banco de Dados Relacional (MySQL)
 
 Para dar suporte ao projeto, os dados foram inicialmente estruturados e populados em um ambiente MySQL. Abaixo estão os scripts utilizados:
 
-### 📜 Script 01: Criação das Tabelas (DDL)
+### Script 01: Criação das Tabelas (DDL)
 ```sql
 -- =============================================
 -- Modelo Relacional - Universidade (Transacional)
@@ -79,7 +79,7 @@ ALTER TABLE Departamento
     FOREIGN KEY (idProfessor_coordenador) REFERENCES Professor(idProfessor);
 ```
 
-### 📜 Script 02: Inserção de Dados (DML)
+### Script 02: Inserção de Dados (DML)
 
 ```sql
 -- Popula Departamento
@@ -107,7 +107,7 @@ INSERT INTO Disciplina_Curso VALUES
 (1,1), (2,1), (3,2), (4,3), (5,4);
 ```
 
-### 🟩 Validação
+### Validação
 
 Abaixo, os comandos utilizados para validar a carga de dados e a integridade referencial antes da importação para o Power BI:
 
@@ -195,7 +195,7 @@ mysql> SELECT * FROM Disciplina_Curso;
 ```
 </details>
 
-### 💡 Detalhamento Técnico: Por que o uso intensivo de IDs numéricos?
+### Detalhamento Técnico: Por que o uso intensivo de IDs numéricos?
 
 A predominância de valores numéricos nas tabelas acima não é acidental; ela reflete a aplicação de **Chaves Primárias (PK)** e **Estrangeiras (FK)**, fundamentais para a integridade e performance do modelo:
 
@@ -205,7 +205,7 @@ A predominância de valores numéricos nas tabelas acima não é acidental; ela 
 
 ---
 
-## ⚙️ 3. Processo de ETL (Power Query)
+## 3. Processo de ETL (Power Query)
 
 Após a importação dos dados para o Power BI, as seguintes transformações foram aplicadas no **Editor do Power Query** para converter o modelo relacional em um modelo dimensional:
 
@@ -282,7 +282,7 @@ Após a importação dos dados para o Power BI, as seguintes transformações fo
 
 ---
 
-## 📐 4. Arquitetura do Modelo (Star Schema)
+## 4. Arquitetura do Modelo (Star Schema)
 
 A arquitetura dimensional foi desenhada para separar claramente as métricas dos seus contextos:
 
@@ -310,9 +310,9 @@ O modelo final utiliza uma abordagem **Star Schema** (com uma leve ramificação
 
 ---
 
-## 🚀 5. Conclusão
+## 5. Conclusão
 O modelo resultante permite uma análise granular da carga acadêmica. É possível visualizar, por exemplo, o total de disciplinas ofertadas por departamento em um período específico ou o volume de cursos atendidos por cada docente.
 
----
-**Desenvolvido por:** Arthur Haerdy Junior  
-**Contexto:** Desafio Módulo 8 - Bootcamp NTT DATA Python & Data Engineering.
+## Referências
+
+- [Repositório de Estudos – Bootcamp NTT DATA - Engenharia de Dados com Python](https://github.com/ahaerdy/DIO-learning/tree/main/NTT%20DATA-Engenharia%20de%20Dados%20com%20Python#-reposit%C3%B3rio-de-estudos--bootcamp-ntt-data-engenharia-de-dados-com-python)
